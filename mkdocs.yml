@@ -1,0 +1,30 @@
+site_name: binq
+site_author: progrhyme
+site_url: https://binqry.github.io/
+site_description: >-
+  "binq" is a light-weight software installer written in Golang.
+copyright: Copyright &copy; 2020 progrhyme
+
+repo_name: binqry/binq
+repo_url: https://github.com/binqry/binq
+edit_uri: https://github.com/binqry/binqry.github.io/edit/source/docs
+
+theme:
+  name: material
+  palette:
+    scheme: default
+    primary: green
+    accent: pink
+
+markdown_extensions:
+  - codehilite
+  - admonition
+  - pymdownx.superfences
+
+plugins:
+  - search
+  - git-revision-date-localized
+
+# Pages
+nav:
+  - Home: index.md
