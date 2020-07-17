@@ -1,0 +1,720 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content=""binq" is a light-weight software installer written in Golang.">
+      
+      
+        <link rel="canonical" href="https://binqry.github.io/cli-usage/">
+      
+      
+        <meta name="author" content="progrhyme">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+    
+    
+      
+        <title>CLI Usage - binq</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.fe0cca5b.min.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a46bcfb3.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4caf50">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cli-usage-of-binq" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://binqry.github.io/" title="binq" class="md-header-nav__button md-logo" aria-label="binq">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            binq
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              CLI Usage
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/binqry/binq/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    binqry/binq
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://binqry.github.io/" title="binq" class="md-nav__button md-logo" aria-label="binq">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    binq
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/binqry/binq/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    binqry/binq
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../quickstart/" title="Quickstart" class="md-nav__link">
+      Quickstart
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        CLI Usage
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="CLI Usage" class="md-nav__link md-nav__link--active">
+      CLI Usage
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-usage" class="md-nav__link">
+    General Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-items" class="md-nav__link">
+    Install "Items"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-upgrade" class="md-nav__link">
+    Self Upgrade
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-items-on-index-server" class="md-nav__link">
+    List Items on "Index Server"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-and-edit-item-manifests" class="md-nav__link">
+    Create and Edit "Item Manifests"
+  </a>
+  
+    <nav class="md-nav" aria-label="Create and Edit "Item Manifests"">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-manifest" class="md-nav__link">
+    Create a Manifest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revise-a-version-in-a-manifest" class="md-nav__link">
+    Revise a version in a Manifest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-a-version-in-a-manifest" class="md-nav__link">
+    Verify a version in a Manifest
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manipulate-index-dataset-in-local-file-system" class="md-nav__link">
+    Manipulate "Index Dataset" in Local File System
+  </a>
+  
+    <nav class="md-nav" aria-label="Manipulate "Index Dataset" in Local File System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#register-or-update-an-item-on-index" class="md-nav__link">
+    Register or Update an Item on Index
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modify-an-item-info-on-index" class="md-nav__link">
+    Modify an Item Info on Index
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deregister-an-item-from-index" class="md-nav__link">
+    Deregister an Item from Index
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../terminology/" title="Terminology" class="md-nav__link">
+      Terminology
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-usage" class="md-nav__link">
+    General Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-items" class="md-nav__link">
+    Install "Items"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-upgrade" class="md-nav__link">
+    Self Upgrade
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-items-on-index-server" class="md-nav__link">
+    List Items on "Index Server"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-and-edit-item-manifests" class="md-nav__link">
+    Create and Edit "Item Manifests"
+  </a>
+  
+    <nav class="md-nav" aria-label="Create and Edit "Item Manifests"">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-manifest" class="md-nav__link">
+    Create a Manifest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revise-a-version-in-a-manifest" class="md-nav__link">
+    Revise a version in a Manifest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-a-version-in-a-manifest" class="md-nav__link">
+    Verify a version in a Manifest
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manipulate-index-dataset-in-local-file-system" class="md-nav__link">
+    Manipulate "Index Dataset" in Local File System
+  </a>
+  
+    <nav class="md-nav" aria-label="Manipulate "Index Dataset" in Local File System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#register-or-update-an-item-on-index" class="md-nav__link">
+    Register or Update an Item on Index
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modify-an-item-info-on-index" class="md-nav__link">
+    Modify an Item Info on Index
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deregister-an-item-from-index" class="md-nav__link">
+    Deregister an Item from Index
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/binqry/binqry.github.io/edit/source/docs/cli-usage.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="cli-usage-of-binq">CLI Usage of <strong>binq</strong></h1>
+<p>This page describes various usages of <a href="https://github.com/binqry/binq/"><strong>binq</strong></a> command.</p>
+<h2 id="general-usage">General Usage</h2>
+<p>Syntax:</p>
+<div class="highlight"><pre><span></span><code>binq <span class="o">[</span>install<span class="o">]</span> <span class="o">[</span>arguments...<span class="o">]</span> <span class="o">[</span>options...<span class="o">]</span>
+binq COMMAND <span class="o">[</span>arguments...<span class="o">]</span> <span class="o">[</span>options...<span class="o">]</span>
+binq -h<span class="p">|</span>--help  <span class="c1"># Show general help</span>
+</code></pre></div>
+
+<p>Subcommands:</p>
+<div class="highlight"><pre><span></span><code>binq install       <span class="c1"># (Default command) Install binary or archive item</span>
+binq index         <span class="c1"># List Items on Index Server</span>
+binq new           <span class="c1"># Create Item JSON for Index Server</span>
+binq revise        <span class="c1"># Add/Edit/Delete a version in Item JSON</span>
+binq verify        <span class="c1"># Verify checksum of a version in item JSON</span>
+binq register      <span class="c1"># Register item JSON into Local Index Dataset</span>
+binq modify        <span class="c1"># Modify item properties on Local Index</span>
+binq deregister    <span class="c1"># Deregister item from Local Index Dataset</span>
+binq self-upgrade  <span class="c1"># Upgrade binq binary itself</span>
+binq version       <span class="c1"># Show binq version</span>
+</code></pre></div>
+
+<p>Run <code>binq COMMAND -h|--help</code> to see reference of each subcommand.</p>
+<p>General Options:</p>
+<div class="highlight"><pre><span></span><code>-h<span class="p">|</span>--help                <span class="c1"># Show help</span>
+-L, --log-level string   <span class="c1"># Log level (debug,info,notice,warn,error)</span>
+</code></pre></div>
+
+<h2 id="install-items">Install "Items"</h2>
+<p>An <a href="../terminology/#item">item</a> means a stuff which can be installed by <code>binq</code>.</p>
+<p>See <a href="../quickstart/">Quickstart</a> for this use case.</p>
+<h2 id="self-upgrade">Self Upgrade</h2>
+<p><code>binq self-upgrade</code> is command to upgrade the executing binary itself when newer version is
+available.</p>
+<p>It uses the functionality of <code>binq</code> itself.<br />
+It has a few command options but you will rarely need to specify either of them.</p>
+<h2 id="list-items-on-index-server">List Items on "Index Server"</h2>
+<p><a href="../terminology/#index-server">Index Server</a> serves dataset of multiple items.</p>
+<p><code>binq index</code> is command to list items on an index server.</p>
+<p>Syntax:</p>
+<div class="highlight"><pre><span></span><code>binq index <span class="o">[</span>-s<span class="p">|</span>--server SERVER<span class="o">]</span> <span class="o">[</span>-o<span class="p">|</span>--output FORMAT<span class="o">]</span> <span class="o">[</span>GENERAL_OPTIONS<span class="o">]</span>
+</code></pre></div>
+
+<p>If you omit <code>-s|--server</code> option, <a href="https://binqry.github.io/index">https://binqry.github.io/index</a>
+will be queried as default server.</p>
+<p>You can specify <code>text</code> or <code>json</code> as <code>-o|--output</code> option. Default is <code>text</code>.</p>
+<h2 id="create-and-edit-item-manifests">Create and Edit "Item Manifests"</h2>
+<p>An <a href="../terminology/#item-manifest">item manifest</a> is data which describes how to install the item.</p>
+<p><code>binq</code> has several subcommands to create and edit item manifest files in the form of JSON.</p>
+<h3 id="create-a-manifest">Create a Manifest</h3>
+<p><code>binq new</code> is command to create an item manifest.</p>
+<p>Syntax:</p>
+<div class="highlight"><pre><span></span><code>binq new URL_FORMAT <span class="o">[</span>-v<span class="p">|</span>--version VERSION<span class="o">]</span> <span class="o">[</span>-f<span class="p">|</span>--file OUTPUT_FILE<span class="o">]</span> <span class="se">\</span>
+  <span class="o">[</span>-r<span class="p">|</span>--replace REPLACEMENTS<span class="o">]</span> <span class="o">[</span>-e<span class="p">|</span>--ext EXTENSIONS<span class="o">]</span> <span class="se">\</span>
+  <span class="o">[</span>-R<span class="p">|</span>--rename RENAME_FILES<span class="o">]</span> <span class="o">[</span>GENERAL_OPTIONS<span class="o">]</span>
+</code></pre></div>
+
+<h3 id="revise-a-version-in-a-manifest">Revise a version in a Manifest</h3>
+<p><code>binq revise</code> is command to add/edit/delete a version for the manifest.</p>
+<p>Syntax:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Add or Update Version in the Manifest</span>
+binq revise MANIFEST_FILE <span class="o">[</span>-v<span class="p">|</span>--version<span class="o">]</span> VERSION <span class="se">\</span>
+  <span class="o">[</span>-s<span class="p">|</span>--sum CHECKSUMS<span class="o">]</span> <span class="o">[</span>-u<span class="p">|</span>--url URL_FORMAT<span class="o">]</span> <span class="se">\</span>
+  <span class="o">[</span>-r<span class="p">|</span>--replace REPLACEMENTS<span class="o">]</span> <span class="o">[</span>-e<span class="p">|</span>--ext EXTENSIONS<span class="o">]</span> <span class="se">\</span>
+  <span class="o">[</span>-R<span class="p">|</span>--rename RENAME_FILES<span class="o">]</span> <span class="o">[</span>--latest<span class="o">]</span> <span class="o">[</span>--no-latest<span class="o">]</span> <span class="o">[</span>-y<span class="p">|</span>--yes<span class="o">]</span> <span class="se">\</span>
+  <span class="o">[</span>GENERAL_OPTIONS<span class="o">]</span>
+
+<span class="c1"># Delete Version in the Manifest</span>
+binq revise MANIFEST_FILE VERSION --delete <span class="o">[</span>-y<span class="p">|</span>--yes<span class="o">]</span> <span class="o">[</span>GENERAL_OPTIONS<span class="o">]</span>
+</code></pre></div>
+
+<p>In most cases, you won't need such options like <code>--url</code>, <code>--replace</code> and <code>--rename</code> because they
+rarely differs between versions.</p>
+<p>If the checksums of items are ambiguous, you can use following <code>binq verify</code> command.</p>
+<h3 id="verify-a-version-in-a-manifest">Verify a version in a Manifest</h3>
+<p><code>binq verify</code> is command to verify the checksum of a version of an item.<br />
+It can also be used to generate SHA-256 checksum for the version.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Download a Version in the Manifest and Verify its checksum</span>
+binq verify MANIFEST_FILE <span class="o">[</span>-v<span class="p">|</span>--version VERSION<span class="o">]</span> <span class="o">[</span>--os OS<span class="o">]</span> <span class="se">\</span>
+  <span class="o">[</span>-a<span class="p">|</span>--arch ARCH<span class="o">]</span> <span class="o">[</span>-y<span class="p">|</span>--yes<span class="o">]</span> <span class="o">[</span>--keep<span class="o">]</span> <span class="o">[</span>GENERAL_OPTIONS<span class="o">]</span>
+</code></pre></div>
+
+<h2 id="manipulate-index-dataset-in-local-file-system">Manipulate "Index Dataset" in Local File System</h2>
+<p><a href="../terminology/#index-dataset">Index Dataset</a> is a dataset which holds multiple item manifests.</p>
+<p><code>binq</code> has several subcommands to create and edit index dataset in local file system.</p>
+<h3 id="register-or-update-an-item-on-index">Register or Update an Item on Index</h3>
+<p><code>binq register</code> is command to register or update an item manifest onto index dataset which is
+located in a directory.</p>
+<p>Syntax:</p>
+<div class="highlight"><pre><span></span><code>binq register pato/to/root<span class="o">[</span>/index.json<span class="o">]</span> MANIFEST_FILE <span class="se">\</span>
+  <span class="o">[</span>-n<span class="p">|</span>--name NAME<span class="o">]</span> <span class="o">[</span>-p<span class="p">|</span>--path PATH<span class="o">]</span> <span class="o">[</span>-y<span class="p">|</span>--yes<span class="o">]</span> <span class="o">[</span>GENERAL_OPTIONS<span class="o">]</span>
+</code></pre></div>
+
+<p>The name of <a href="../terminology/#index">index</a> data file must be <code>index.json</code>.<br />
+When <code>index.json</code> does not exist, it will be created.</p>
+<p>If you want to change the name or path of a registered item, use following <code>binq modify</code> command.</p>
+<h3 id="modify-an-item-info-on-index">Modify an Item Info on Index</h3>
+<p><code>binq modify</code> is command to edit the properties of an item on index dataset.</p>
+<p>Syntax:</p>
+<div class="highlight"><pre><span></span><code>binq modify pato/to/root<span class="o">[</span>/index.json<span class="o">]</span> NAME <span class="se">\</span>
+  <span class="o">[</span>-n<span class="p">|</span>--name NEW_NAME<span class="o">]</span> <span class="o">[</span>-p<span class="p">|</span>--path PATH<span class="o">]</span> <span class="o">[</span>-y<span class="p">|</span>--yes<span class="o">]</span> <span class="o">[</span>GENERAL_OPTIONS<span class="o">]</span>
+</code></pre></div>
+
+<p>This command has no functionality to edit the manifest itself.<br />
+You should use <code>binq revise</code> or <code>binq verify</code> command for the purpose.</p>
+<h3 id="deregister-an-item-from-index">Deregister an Item from Index</h3>
+<p><code>binq deregister</code> is command to remove an item from index dataset.</p>
+<p>Syntax:</p>
+<div class="highlight"><pre><span></span><code>binq deregister pato/to/root<span class="o">[</span>/index.json<span class="o">]</span> NAME <span class="o">[</span>-y<span class="p">|</span>--yes<span class="o">]</span> <span class="se">\</span>
+  <span class="o">[</span>GENERAL_OPTIONS<span class="o">]</span>
+</code></pre></div>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 17, 2020</span>
+    
+  </small>
+</div>
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../quickstart/" title="Quickstart" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Quickstart
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../terminology/" title="Terminology" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Terminology
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2020 progrhyme
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.a68abb33.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
