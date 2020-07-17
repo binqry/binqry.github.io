@@ -1,5 +1,7 @@
 # binq
 
+[![release](https://badgen.net/github/release/binqry/binq)](https://github.com/binqry/binq/releases)
+
 [binq](https://github.com/binqry/binq) is a light-weight software installer written in Golang.  
 It downloads stuff querying an HTTP URL and extracts them if they are compressed.  
 Especially, **binq** makes it easy to get stuff which is not provided by any package manager but has
@@ -16,13 +18,9 @@ The documentation contains followings:
 
 ## System Requirements
 
-Pre-built binaries are available for macOS and Linux with x86-64 CPU architecture.
+Pre-built binaries are available for Windows, macOS and Linux with x86-64 CPU architecture.
 
 **binq** is logically supposed to work on any machine for which Go can compile codes.
-
-Known issues:
-
-- Installation process on Windows may not work.
 
 ## Installation
 
