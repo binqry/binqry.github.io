@@ -25,6 +25,12 @@ plugins:
   - search
   - git-revision-date-localized
 
+extra_css:
+  - stylesheets/extra.css
+
 # Pages
 nav:
   - Home: index.md
+  - Quickstart: quickstart.md
+  - CLI Usage: cli-usage.md
+  - Terminology: terminology.md
