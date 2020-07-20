@@ -35,7 +35,7 @@ Description for each method follows.
 ### Homebrew (Linuxbrew)
 
 ```sh
-brew tap progrhyme/taps
+brew tap progrhyme/tap
 brew install binq
 ```
 
