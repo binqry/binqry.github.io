@@ -133,7 +133,7 @@ located in a directory.
 Syntax:
 
 ```sh
-binq register pato/to/root[/index.json] MANIFEST_FILE \
+binq register path/to/root[/index.json] MANIFEST_FILE \
   [-n|--name NAME] [-p|--path PATH] [-y|--yes] [GENERAL_OPTIONS]
 ```
 
@@ -149,7 +149,7 @@ If you want to change the name or path of a registered item, use following `binq
 Syntax:
 
 ```sh
-binq modify pato/to/root[/index.json] NAME \
+binq modify path/to/root[/index.json] NAME \
   [-n|--name NEW_NAME] [-p|--path PATH] [-y|--yes] [GENERAL_OPTIONS]
 ```
 
@@ -163,6 +163,6 @@ You should use `binq revise` or `binq verify` command for the purpose.
 Syntax:
 
 ```sh
-binq deregister pato/to/root[/index.json] NAME [-y|--yes] \
+binq deregister path/to/root[/index.json] NAME [-y|--yes] \
   [GENERAL_OPTIONS]
 ```
